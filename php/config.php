@@ -1,9 +1,9 @@
 <?php
     class DB {
         protected $host = 'localhost';
-        protected $dbname = 'trivia-game';
+        protected $dbname = 'trivia_game';
         protected $username = 'root';
-        protected $password = '';
+        protected $password = 'root';
         public $connection;
 
         public function __construct() {
