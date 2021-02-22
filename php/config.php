@@ -1,7 +1,7 @@
 <?php
     class DB {
         protected $host = 'localhost';
-        protected $dbname = 'trivia_game';
+        protected $dbname = 'trivia-game';
         protected $username = 'root';
         protected $password = '';
         public $connection;
