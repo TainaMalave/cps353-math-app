@@ -3,7 +3,7 @@
         protected $host = 'localhost';
         protected $dbname = 'trivia_game';
         protected $username = 'root';
-        protected $password = 'root';
+        protected $password = '';
         public $connection;
 
         public function __construct() {
