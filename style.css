@@ -38,3 +38,11 @@ body {
 	position:relative;
 	top:1px;
 }
+
+#answers {
+    display: inline-block;
+}
+
+#answers > div {
+    text-align: left;
+}
