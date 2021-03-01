@@ -1,5 +1,5 @@
 <?php
-include('php/config.php');
+include('config.php');
 $db = new DB();
 $questions = $db->getQuestions();
 ?>
@@ -12,7 +12,7 @@ $questions = $db->getQuestions();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div class="container">
@@ -46,6 +46,6 @@ $questions = $db->getQuestions();
     <script type="text/javascript">
         var questions = <?php echo json_encode($questions); ?>;
     </script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="../script.js"></script>
 </body>
 </html>

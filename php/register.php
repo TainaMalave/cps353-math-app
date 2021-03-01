@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $result = mysqli_query($db->connection, $sql);
         echo $db
             ->connection->error;
+        
+        // if name doesn't exist -> take them to the game?
+        header('location: game.php');
     }
     else
     {

@@ -2,9 +2,7 @@
 include ('config.php');
 session_start();
 $test = new DB();
-echo "<pre>";
-print_r($test->getQuestions());
-echo "</pre>";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $username = mysqli_real_escape_string($test->connection, $_POST['username']);

@@ -1,5 +1,5 @@
 <?php
-include ('Models/questionModel.php');
+include ('models/questionModel.php');
 
 class DB
 {
@@ -12,36 +12,6 @@ class DB
     public function __construct()
     {
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->dbname);
-    }
-
-    public function getQuestion($id)
-    {
-        if (is_numeric($id))
-        {
-            $sql = 'SELECT * FROM questions LEFT JOIN answers ON questions.id = answers.q_id WHERE questions.id = "' . $id . '" ';
-            $result = mysqli_query($this->connection, $sql);
-            if ($result)
-            {
-                $count = mysqli_num_rows($result);
-                if ($count)
-                {
-                    $row = $result->fetch_assoc();
-                    $question = new Question($row['q_title'], $row['q_text']);
-
-                    do
-                    {
-                        $answer = new Answer($row['a_text'], $row['is_correct']);
-                        $question->addAnswer($answer);
-
-                    }
-                    while ($row = $result->fetch_assoc());
-                    return $question;
-                }
-
-            }
-
-        }
-        return null;
     }
 
     public function getQuestions()
