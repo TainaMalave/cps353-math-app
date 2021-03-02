@@ -15,8 +15,8 @@
 
                 <div class="results">
                     <h2>You got this many correct and wrong:</h2>
-                    <h3>Correct: <?php echo $_GET['correct'] ?> </h3>
-                    <h3>Wrong: <?php echo $_GET['wrong'] ?>  </h3>
+                    <h3>Correct: <?php echo $_GET['correct'] /* Prints out the amount of correct answers */ ?> </h3>
+                    <h3>Wrong: <?php echo $_GET['wrong'] /* Prints out the amount of wrong answers */ ?>  </h3>
                 </div>
             </div>
         </div>
