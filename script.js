@@ -41,7 +41,6 @@ function displayQuestion(index) {
             answers.appendChild(answerWrapper);
         }
     }
-    //console.log(question);
 }
 
 displayQuestion(0);
