@@ -1,12 +1,30 @@
 <?php
 include ('config.php');
-session_start();
-$db = new DB();
+$addedQuestion = false;
+
+function runQuery($db, $sql) {
+    $result = mysqli_query($db->connection, $sql);
+		
+    //If there is an error creating the account, then print out the error
+    if($db->connection->error) {
+        die($db->connection->error);
+    }
+}
+
+function insertQuery($db, $sql){
+    runQuery($db, $sql);
+    return $db->connection->insert_id;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $question = mysqli_real_escape_string($db->connection, $_POST['question']);
-    $q_text = mysqli_real_escape_string($db->connection, $_POST['q_text']);
+    $correctAnswer = mysqli_real_escape_string($db->connection, $_POST['correct-answer']);
+
+    $wrongAnswers = array_map(function($wrongAnswer) use($db)
+    {
+        return mysqli_real_escape_string($db->connection, $wrongAnswer);
+    }, $_POST['wrong-answer']);
 
     $checkSql = 'SELECT COUNT(*) AS count FROM questions WHERE q_title = "' . $question . '"';
 
@@ -16,18 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if ($count[0] == 0)
     {
-		
-		// Inserts the new user with the escaped username and hashed password into the database
-        $sql = 'INSERT INTO questions (q_title, q_text) VALUES ("' . $question . '", "' . $q_text . '")';
-		
-		// Run the above query
-        $result = mysqli_query($db->connection, $sql);
-		
-		//If there is an error creating the account, then print out the error
-		if($db->connection->error) {
-			die($db->connection->error);
-		}
-    
+		$addedQuestion = true;
+        // Grabbing the last ID
+        $questionID = insertQuery($db, 'INSERT INTO questions (q_title) VALUES ("' . $question . '")');
+
+        runQuery($db, 'INSERT INTO answers (q_id, a_text, is_correct) VALUES (' . $questionID . ', "' . $correctAnswer .'", 1)');
+
+        foreach ($wrongAnswers as $wrongAnswer) {
+
+           runQuery($db, 'INSERT INTO answers (q_id, a_text, is_correct) VALUES (' . $questionID . ', "' . $wrongAnswer .'", 0)');
+        }
+
     }
     else // otherwise
     {
@@ -36,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,16 +65,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <body>
     <form action="" method="POST">
         <div class="q-form">
-            <div class="submit-question">
-                <input name="question" type="text" placeholder="enter your question...">
-                <input name="q_text" type="text" placeholder="what is the right answer?">
+        <?php if($addedQuestion) : ?>
+            <p>Question was added to the DB.</p>
+        <?php endif; ?>
+            <div class="q-form-title">
+                <h1>Submit A Question </h1>
             </div>
 
-            <div class="submit-answer-button">
+            <div class="submit-question">
+                <input name="question" type="text" placeholder="enter your question...">
+                <br>
+                <input name="correct-answer" type="text" placeholder="what is the correct answer">
+            </div>
+
+            <div class="create-answer-input">
                 <input type="button" value="Create Input" onClick="createInput();" />
             </div>
 
-            <div id="submit-answers">New input goes here</div>
+            <div id="submit-answers"></div>
         </div>
         <button class="submit-btn" type="submit">Submit Question</button>
     </form>
@@ -66,11 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <script type="text/javascript">
         function createInput(){
             var answerInputWrapper = document.createElement('div');
-            var correctAnswer = document.createElement('div');
-            answerInputWrapper.innerHTML = "<input type='text' id='newInputBox'>";
-            correctAnswer.innerHTML = "<input type='radio' name='correctAnswer'>";
+            answerInputWrapper.innerHTML = "<input type='text' name='wrong-answer[]'>";
             document.getElementById("submit-answers").appendChild(answerInputWrapper);
-            document.getElementById("submit-answers").appendChild(correctAnswer);
         }
     </script>
 </body>
