@@ -1,5 +1,5 @@
 <?php
-    include('models/scoreboardModel.php');
+    include('Models/scoreboardModel.php');
 
     $topTenUsers = Scoreboard::getTopTen();
 ?>

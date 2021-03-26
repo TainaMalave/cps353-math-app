@@ -1,5 +1,5 @@
 <?php
-include ('models/questionModel.php');
+include ('Models/questionModel.php');
 
 class DB
 {
