@@ -17,37 +17,40 @@ $questions = $db->getQuestions();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia Game</title>
 
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="game-content">
+    <div class="quiz-box">
+        <header>
+            <div class="title">Trivia Game</div>
+            <div class="timer">
+                <div class="timer-text">Time Left:</div>
+                <div class="timer-seconds">30</div>
+            </div>
+        </header>
+
+        <section>
             <div class="question">
-                <h2 id="question">Who was the president that gave the "I had a dream speach"?</h2>
+                <span id="question"></span>
             </div>
-            <div id="answers">
-                <div>
-                    <input type="radio" id="correct" name="president" value="Martin Luther King JR">
-                    <label for="male">Martin Luther King JR</label>
+
+            <div class="answer-list">
+                <div id="answers">
+                    
                 </div>
-                <div>
-                    <input type="radio" id="" name="president" value="Trump">
-                    <label for="male">Trump</label>
-                </div>
-                <div>
-                    <input type="radio" id="" name="president" value="George Washington">
-                    <label for="male">George Washington</label>
-                </div>
-                <div>
-                    <input type="radio" id="" name="president" value="Bill Clinton">
-                    <label for="male">Bill Clinton</label>
-                </div>
+                
             </div>
-            <div class="nextBtn">
-                <button id="nextBtn"value="Next">Next</button>
-            </div>
-        </div>
+        </section>
+
+        <footer>
+            <button id="nextBtn"value="Next">Next</button>
+        </footer>
     </div>
+    
     <script type="text/javascript">
         var questions = <?php echo json_encode($questions); ?>;
     </script>
