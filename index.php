@@ -14,7 +14,7 @@
         <!-- Main Header Information -->
         <div class="info-box">
             <div class="info-title">
-                <span>TRIVIA GAME</span>
+                <span>Smart Study</span>
             </div>
 
             <div class="info-sub-title">
