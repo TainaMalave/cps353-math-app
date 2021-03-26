@@ -2,9 +2,6 @@
 // include the db config and create the db connection.
 include ('config.php');
 
-// Starts a session to hold/check user login information
-session_start();
-
 // Instantiates a new DB class (See config.php)
 $test = new DB();
 
