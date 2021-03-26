@@ -1,5 +1,5 @@
 <?php
-include('models/userModel.php');
+include('Models/userModel.php');
 $user = User::getCurrentUser();
 $user->addScore($_GET['correct'], $_GET['wrong']);
 ?>
