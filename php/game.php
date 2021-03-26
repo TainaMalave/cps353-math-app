@@ -2,10 +2,8 @@
 // include the db config and create the db connection.
 include('config.php');
 
-// Instantiates a new DB class (See config.php)
-$db = new DB();
-
 // Runs a sql query to get all questions with their respective answers (See config.php)
+$db = DB::getDB();
 $questions = $db->getQuestions();
 ?>
 
