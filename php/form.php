@@ -1,3 +1,15 @@
+<?php
+include ('config.php');
+session_start();
+$db = new DB();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    $question = mysqli_real_escape_string($db->connection, $_POST['q_title']);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +31,7 @@
 
             <div id="submit-answers">New input goes here</div>
     </form>
+
     <script type="text/javascript">
         function createInput(){
             var answerInputWrapper = document.createElement('div');
