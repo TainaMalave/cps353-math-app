@@ -10,19 +10,30 @@
 </head>
 <body>
     <div class="container">
-        <div class="main-content">
-            <div class="main-title">
-                <h1>TRIVIA GAME</h1>
+        
+        <!-- Main Header Information -->
+        <div class="info-box">
+            <div class="info-title">
+                <span>TRIVIA GAME</span>
             </div>
 
-            <div class="sub-title">
-                <h2>Can you beat the clock?</h2>
+            <div class="info-sub-title">
+                <span>Can you beat the clock?</span>
             </div>
 
-            <div class="main-btns">
-                <a href="php/login.php" class="btnStyle">Login</a>
-                <a href="php/register.php" class="btnStyle">Sign Up</a>
+            <div class="info-list">
+                <div class="info">1. You will have exactly <span>30 seconds</span> total to answer as many questions as you can.</div>
+                <div class="info">2. Once you pick an answer, you cannot reselect.</div>
+                <div class="info">3. You can't exit from the quiz while you're playing.</div>
+                <div class="info">4. Once time runs out, the game will stop and you will see your results.</div>
+                <div class="info">5. You earn a point for every <span>correct</span> answer.</div>
             </div>
+
+            <div class="buttons">
+                <button class="login" onclick="location.href='php/login.php'">Login</button>
+                <button class="register" onclick="location.href='php/register.php'">Register</button>
+            </div>
+
         </div>
     </div>
 </body>
