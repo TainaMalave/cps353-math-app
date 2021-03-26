@@ -5,7 +5,35 @@ $db = new DB();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $question = mysqli_real_escape_string($db->connection, $_POST['q_title']);
+    $question = mysqli_real_escape_string($db->connection, $_POST['question']);
+    $q_text = mysqli_real_escape_string($db->connection, $_POST['q_text']);
+
+    $checkSql = 'SELECT COUNT(*) AS count FROM questions WHERE q_title = "' . $question . '"';
+
+    $checkResult = mysqli_query($db->connection, $checkSql);
+
+    $count = mysqli_fetch_array($checkResult);
+
+    if ($count[0] == 0)
+    {
+		
+		// Inserts the new user with the escaped username and hashed password into the database
+        $sql = 'INSERT INTO questions (q_title, q_text) VALUES ("' . $question . '", "' . $q_text . '")';
+		
+		// Run the above query
+        $result = mysqli_query($db->connection, $sql);
+		
+		//If there is an error creating the account, then print out the error
+		if($db->connection->error) {
+			die($db->connection->error);
+		}
+    
+    }
+    else // otherwise
+    {
+		// Print out that the username already exists and instruct them to choose a new username
+        echo 'That username already exists. Please try a different username';
+    }
 }
 ?>
 
@@ -23,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="q-form">
             <div class="submit-question">
                 <input name="question" type="text" placeholder="enter your question...">
+                <input name="q_text" type="text" placeholder="what is the right answer?">
             </div>
 
             <div class="submit-answer-button">
@@ -30,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
 
             <div id="submit-answers">New input goes here</div>
+        </div>
+        <button class="submit-btn" type="submit">Submit Question</button>
     </form>
 
     <script type="text/javascript">
