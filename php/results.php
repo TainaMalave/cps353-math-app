@@ -1,3 +1,9 @@
+<?php
+include('models/userModel.php');
+$user = User::getCurrentUser();
+$user->addScore($_GET['correct'], $_GET['wrong']);
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
