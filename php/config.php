@@ -12,10 +12,16 @@ class DB
     protected $password = '';
     public $connection;
 
+
     public function __construct()
     {
 		// Set the public connection variable to the new mysql connection
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+    }
+
+    public static function getDB() {
+        $db = new DB();
+        return $db;
     }
 
     public function getQuestions()
@@ -58,7 +64,7 @@ class DB
                         }
 						
 						// Set the question equal to a new question class and instantiates the title of the question and sets the description text. (See Models/questionModel.php)
-                        $question = new Question($row['q_title'], $row['q_text']);
+                        $question = new Question($row['q_title']);
 						
 						// Sets the last id to the current question id
                         $lastID = $row['q_id'];
@@ -81,3 +87,5 @@ class DB
         return $questions;
     }
 }
+
+session_start();
