@@ -119,6 +119,29 @@ body {
 
 /* Login Page CSS */
 
-.input-fields {
-    margin: 0 auto;
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.login-form input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 5px;
+}
+
+.create-account {
+   display: flex;
+   justify-content: center;
+   padding-bottom: 10px;
+}
+
+#login-pg-btn {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-top: none;
 }

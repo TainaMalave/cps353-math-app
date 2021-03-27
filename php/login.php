@@ -60,35 +60,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
 
     <!-- Login Form -->
+        <div class="form-container">
+            <form action="" method="POST">
+                <div class="login-form">
+                    
+                    <div class="input-fields">
+                        <div class="username">
+                            <input name="username" type="text" placeholder="enter username...">
+                        </div>
 
-    <form action="" method="POST">
-        <div class="login-form">
-            
-            <div class="input-fields">
-                <div class="username">
-                    <input name="username" type="text" placeholder="enter username...">
+                        <div class="password">
+                            <input name="password" type="password" placeholder="enter password...">
+                        </div>
+                    </div>
+
+                    <div class="reset-password">
+                        <a href="#">Forgot Your Password?</a>
+                    </div>
                 </div>
 
-                <div class="password">
-                    <input name="password" type="password" placeholder="enter password...">
+
+                <div id="login-pg-btn" class="buttons">
+                    <button class="login" type="submit">LOGIN</button>
                 </div>
-            </div>
-
-            <div class="reset-password">
-                <a href="#">Forgot Your Password?</a>
-            </div>
+                
+            </form>
         </div>
-
-
-        <div class="buttons">
-            <button class="login" type="submit">LOGIN</button>
-        </div>
-        
-    </form>
-    <div class="create-account">
-        <a href="register.php">Don't have an account? Sign up!</a>
+            <div class="create-account">
+                <a href="register.php">Don't have an account? Sign up!</a>
+            </div>
     </div>
-    </div>
-
 </body>
 </html>
