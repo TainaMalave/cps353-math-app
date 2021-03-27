@@ -8,4 +8,4 @@ My motivation for creating this project is because I'm a big fan of videogames. 
 
 ## Screenshots
 Homepage
-![alt text](screenshots/index-screenshot.png)
+![alt text](documents/screenshots/index-screenshot.png)
