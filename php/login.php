@@ -37,32 +37,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 ?>
 
-<div class="container">
-    <div class="title">
-        <h1>Trivia Game</h1>
-    </div>
 
-    <div class="sub-title">
-        <h3>Can you beat the clock?</h3>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study | Login</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Main Header Information -->
+    <div class="info-box">
+        <div class="info-title">
+            <span>Smart Study</span>
+        </div>
+
+        <div class="info-sub-title">
+            <span>Login To Your Account</span>
+        </div>
+
+    <!-- Login Form -->
 
     <form action="" method="POST">
         <div class="login-form">
-            <div class="username">
-                <input name="username" type="text" placeholder="enter username...">
-            </div>
+            
+            <div class="input-fields">
+                <div class="username">
+                    <input name="username" type="text" placeholder="enter username...">
+                </div>
 
-            <div class="password">
-                <input name="password" type="password" placeholder="enter password...">
+                <div class="password">
+                    <input name="password" type="password" placeholder="enter password...">
+                </div>
             </div>
 
             <div class="reset-password">
                 <a href="#">Forgot Your Password?</a>
             </div>
         </div>
-        <button class="login-btn" type="submit">LOGIN</button>
+
+
+        <div class="buttons">
+            <button class="login" type="submit">LOGIN</button>
+        </div>
+        
     </form>
     <div class="create-account">
         <a href="register.php">Don't have an account? Sign up!</a>
     </div>
-</div>
+    </div>
+
+</body>
+</html>

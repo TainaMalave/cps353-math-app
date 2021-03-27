@@ -116,3 +116,9 @@ body {
     color: #fff; 
     background:#007bff;
 }
+
+/* Login Page CSS */
+
+.input-fields {
+    margin: 0 auto;
+}
