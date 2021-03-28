@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                 <!-- Link to Reset Password. -->
                 <div class="reset-password">
-                    <a href="#">Forget Your Password?</a>
+                    <a href="#">Forget Password?</a>
                 </div>
 
                 <!-- Login to account -->
@@ -80,9 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <button class="login" type="submit">LOGIN</button>
                 </div>
 
-                <!-- <div class="create-account">
-                    <a href="register.php">Don't have an account? Sign up!</a>
-                </div> -->
+                <!-- Create Account Link -->
+                <div class="create-account">
+                    <a href="register.php">Don't have an account? <span>Sign up!</span></a>
+                </div> 
             </form>
         </div>
     </div>  

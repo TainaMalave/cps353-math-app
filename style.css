@@ -54,7 +54,7 @@ body {
     justify-content: center;
     padding: 0 35px;
     font-size: 20px;
-    font-weight: 600;   
+    font-weight: 600;
 }
 
 .info-box .info-sub-title {
@@ -121,11 +121,14 @@ body {
 
 /* Login Page CSS */
 
+form {
+    width: 100%;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 40px 10px 40px;
 }
 
 .form-container input {
@@ -160,8 +163,20 @@ body {
     margin: 10px 0 10px 0;
 }
 
+.reset-password a {
+    text-decoration: none;
+    color: #007bff;
+}
 
+#login-pg-btn button {
+    width:100%;
+}
 
-.login-page {
-    margin: 15px 0 0 0;
+.create-account a {
+    text-decoration: none;
+    color: black;
+}
+
+.create-account span {
+    color: #007bff;
 }
