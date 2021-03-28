@@ -180,3 +180,21 @@ form {
 .create-account span {
     color: #007bff;
 }
+
+#register-pg-btn button {
+    width: 100%;
+}
+
+.login-page-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-page-link a {
+    text-decoration: none;
+    color: black;
+}
+.login-page-link span {
+    color: #007bff;
+}

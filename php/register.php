@@ -97,14 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     </div>
                 </div>
 
-                <!-- Link to Login page. -->
-                <div class="login-page">
-                    <a href="login.php">Already have an account? Login!</a>
-                </div>
-
                 <!-- Register Button -->
                 <div id="register-pg-btn" class="buttons">
                     <button class="register" type="submit">REGISTER</button>
+                </div>
+
+                <!-- Link to Login page. -->
+                <div class="login-page-link">
+                    <a href="login.php">Already have an account? <span>Login!</span></a>
                 </div>
             </form>
         </div>
