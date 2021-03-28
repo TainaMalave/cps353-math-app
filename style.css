@@ -41,6 +41,8 @@ body {
     width: 540px;
     background: #fff;
     border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .info-box .info-title {
