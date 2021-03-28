@@ -49,46 +49,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <!-- Main Header Information -->
+    <!-- Whole wrapper -->
     <div class="info-box">
         <div class="info-title">
             <span>Smart Study</span>
         </div>
-
-        <div class="info-sub-title">
-            <span>Login To Your Account</span>
-        </div>
-
-    <!-- Login Form -->
+        <!-- Login Page Form -->
         <div class="form-container">
             <form action="" method="POST">
-                <div class="login-form">
-                    
-                    <div class="input-fields">
-                        <div class="username">
-                            <input name="username" type="text" placeholder="enter username...">
-                        </div>
-
-                        <div class="password">
-                            <input name="password" type="password" placeholder="enter password...">
-                        </div>
+                <div class="login-form-info">
+                    <div class="form-instructions">
+                        <span>Login To Your Account.</span>
+                    </div>
+                    <div class="username">
+                        <input name="username" type="text" placeholder="enter username...">
                     </div>
 
-                    <div class="reset-password">
-                        <a href="#">Forgot Your Password?</a>
+                    <div class="password">
+                        <input name="password" type="password" placeholder="enter password...">
                     </div>
                 </div>
 
+                <!-- Link to Reset Password. -->
+                <div class="reset-password">
+                    <a href="#">Forget Your Password?</a>
+                </div>
 
+                <!-- Login to account -->
                 <div id="login-pg-btn" class="buttons">
                     <button class="login" type="submit">LOGIN</button>
                 </div>
-                
+
+                <!-- <div class="create-account">
+                    <a href="register.php">Don't have an account? Sign up!</a>
+                </div> -->
             </form>
         </div>
-            <div class="create-account">
-                <a href="register.php">Don't have an account? Sign up!</a>
-            </div>
-    </div>
+    </div>  
 </body>
 </html>
