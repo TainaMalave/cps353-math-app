@@ -58,36 +58,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else // otherwise
     {
 		// Print out that the username already exists and instruct them to choose a new username
-        echo 'That username already exists. Please try a different username';
+       /*  echo 'That username already exists. Please try a different username'; */
+        $accountExists = 'That username already exists. Please try a different username';
+        echo "<p style='color:white;'>" . $accountExists . "</p>";
     }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study | Register</title>
 
-<div class="container">
-    <div class="title">
-        <h1>Trivia Game</h1>
-    </div>
-
-    <div class="sub-title">
-        <h3>Can you beat the clock?</h3>
-    </div>
-
-    <form action="" method="POST">
-        <div class="register-form">
-            <div class="username">
-                <label for="username">Enter a Username</label>
-                <input name="username" type="text" placeholder="enter username...">
-            </div>
-
-            <div class="password">
-                <label for="password">Enter a passward</label>
-                <input name="password" type="password" placeholder="enter password...">
-            </div>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Whole wrapper -->
+    <div class="info-box">
+        <div class="info-title">
+            <span>Smart Study</span>
         </div>
-        <button class="register-btn" type="submit">REGISTER</button>
-    </form>
-    <div class="login-page">
-        <a href="login.php">Already have an account? Login!</a>
-    </div>
-</div>
+        <!-- Register Page Form -->
+        <div class="form-container">
+            <form action="" method="POST">
+                <div class="register-form-info">
+                    <div class="register-instructions">
+                        <span>Please fill out the information to create an account.</span>
+                    </div>
+                    <div class="username">
+                        <input name="username" type="text" placeholder="enter username...">
+                    </div>
+
+                    <div class="password">
+                        <input name="password" type="password" placeholder="enter password...">
+                    </div>
+                </div>
+
+                <!-- Link to Login page. -->
+                <div class="login-page">
+                    <a href="login.php">Already have an account? Login!</a>
+                </div>
+
+                <!-- Register Button -->
+                <div id="register-pg-btn" class="buttons">
+                    <button class="register" type="submit">REGISTER</button>
+                </div>
+            </form>
+        </div>
+    </div>  
+</body>
+</html>
