@@ -201,8 +201,18 @@ form {
 
 .submit-qa-btn {
     width: 100%;
+    margin-top: 15px;
     padding: 10px 0 10px 0;
     border-radius: 5px ;
     border: 1px solid lightgray;
     box-shadow: 2px 2px lightgray;
+    font-weight: 600;
+}
+
+.alert-good span {
+    color: #007bff;
+}
+
+.alert-bad {
+    color: red;
 }

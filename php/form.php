@@ -2,6 +2,7 @@
 include ('config.php');
 
 $addedQuestion = false;
+$questionAlert = false;
 
 $db = new DB();
 
@@ -51,8 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     else // otherwise
     {
-		// Print out that the username already exists and instruct them to choose a new username
-        echo 'That question has already been added to the database.';
+        $questionAlert = true;
     }
 }
 ?>
@@ -79,22 +79,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <form action="" method="POST">
                 <div class="qa-form-info">
                     <!-- Question was submitted confirmation -->
+                    <div class="alert-good">
                     <?php if($addedQuestion) : ?>
-                        <p>Question was added to the DB.</p>
+                        <p><span>Success!</span> Question was added to the DB.</p>
                     <?php endif; ?>
+                    </div>
+
+                    <div class="alert-bad">
+                        <?php if($questionAlert) : ?>
+                            <p>That question was already added to the database!</p>
+                        <?php endif; ?>
+                    </div>
 
                     <div class="form-instructions">
                         <span>Submit a question.</span>
                     </div>
 
                     <div class="submit-question">
-                        <input name="question" type="text" placeholder="enter your question...">
+                        <input name="question" type="text" placeholder="Enter your question...">
                         <br>
-                        <input name="correct-answer" type="text" placeholder="what is the correct answer">
+                        <input name="correct-answer" type="text" placeholder="What is the correct answer?">
                     </div>
 
                     <div class="create-answer-input">
-                        <input type="button" value="Create Input" onClick="createInput();" />
+                        <input type="button" value="Create New Answer Input" onClick="createInput();" />
                     </div>
                     
                     <!-- Div where new answer inputs go -->
@@ -109,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <script type="text/javascript">
         function createInput(){
             var answerInputWrapper = document.createElement('div');
-            answerInputWrapper.innerHTML = "<input type='text' name='wrong-answer[]' placeholder='enter a new answer'>";
+            answerInputWrapper.innerHTML = "<input type='text' name='wrong-answer[]' placeholder='Enter a new answer'>";
             document.getElementById("submit-answers").appendChild(answerInputWrapper);
         }
     </script>
