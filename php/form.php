@@ -1,6 +1,9 @@
 <?php
 include ('config.php');
+
 $addedQuestion = false;
+
+$db = new DB();
 
 function runQuery($db, $sql) {
     $result = mysqli_query($db->connection, $sql);
@@ -49,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else // otherwise
     {
 		// Print out that the username already exists and instruct them to choose a new username
-        echo 'That username already exists. Please try a different username';
+        echo 'That question has already been added to the database.';
     }
 }
 ?>
@@ -61,36 +64,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Q/A Form</title>
+
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <form action="" method="POST">
-        <div class="q-form">
-        <?php if($addedQuestion) : ?>
-            <p>Question was added to the DB.</p>
-        <?php endif; ?>
-            <div class="q-form-title">
-                <h1>Submit A Question </h1>
-            </div>
-
-            <div class="submit-question">
-                <input name="question" type="text" placeholder="enter your question...">
-                <br>
-                <input name="correct-answer" type="text" placeholder="what is the correct answer">
-            </div>
-
-            <div class="create-answer-input">
-                <input type="button" value="Create Input" onClick="createInput();" />
-            </div>
-
-            <div id="submit-answers"></div>
+    <!-- Whole Wrapper -->
+    <div class="info-box">
+        <div class="info-title">
+            <span>Smart Study</span>
         </div>
-        <button class="submit-btn" type="submit">Submit Question</button>
-    </form>
+
+        <!-- Submit a question form -->
+        <div class="form-container">
+            <form action="" method="POST">
+                <div class="qa-form-info">
+                    <!-- Question was submitted confirmation -->
+                    <?php if($addedQuestion) : ?>
+                        <p>Question was added to the DB.</p>
+                    <?php endif; ?>
+
+                    <div class="form-instructions">
+                        <span>Submit a question.</span>
+                    </div>
+
+                    <div class="submit-question">
+                        <input name="question" type="text" placeholder="enter your question...">
+                        <br>
+                        <input name="correct-answer" type="text" placeholder="what is the correct answer">
+                    </div>
+
+                    <div class="create-answer-input">
+                        <input type="button" value="Create Input" onClick="createInput();" />
+                    </div>
+                    
+                    <!-- Div where new answer inputs go -->
+                    <div id="submit-answers"></div>
+                    
+                </div>
+                <button class="submit-qa-btn" type="submit">Submit Question</button>
+            </form>
+        </div>
+    </div>
 
     <script type="text/javascript">
         function createInput(){
             var answerInputWrapper = document.createElement('div');
-            answerInputWrapper.innerHTML = "<input type='text' name='wrong-answer[]'>";
+            answerInputWrapper.innerHTML = "<input type='text' name='wrong-answer[]' placeholder='enter a new answer'>";
             document.getElementById("submit-answers").appendChild(answerInputWrapper);
         }
     </script>

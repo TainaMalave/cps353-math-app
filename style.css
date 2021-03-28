@@ -198,3 +198,11 @@ form {
 .login-page-link span {
     color: #007bff;
 }
+
+.submit-qa-btn {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    border-radius: 5px ;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px lightgray;
+}
