@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="form-container">
             <form action="" method="POST">
                 <div class="register-form-info">
-                    <div class="register-instructions">
+                    <div class="form-instructions">
                         <span>Please fill out the information to create an account.</span>
                     </div>
                     <div class="username">
