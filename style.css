@@ -128,12 +128,13 @@ body {
     padding-bottom: 10px;
 }
 
-.login-form input {
-    margin-bottom: 15px;
+.form-container input {
     width: 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px ;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px lightgray;
 }
 
 .create-account {
@@ -155,18 +156,11 @@ body {
     border-top: none;
 }
 
-.register-instructions {
+.form-instructions {
     margin: 10px 0 10px 0;
 }
 
-.form-container input {
-    width: 100%;
-    margin: 10px 0 10px 0;
-    padding: 10px 0 10px 10px;
-    border-radius: 5px ;
-    border: 1px solid lightgray;
-    box-shadow: 2px 2px lightgray;
-}
+
 
 .login-page {
     margin: 15px 0 0 0;
