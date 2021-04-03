@@ -24,10 +24,10 @@ $questions = $db->getQuestions();
 <body>
     <div class="quiz-box">
         <header>
-            <div class="title">Trivia Game</div>
+            <div class="title">Smart Study</div>
             <div class="timer">
-                <div class="timer-text">Time Left:</div>
-                <div class="timer-seconds">30</div>
+                <div class="timer-text">Time Left</div>
+                <div class="timer-seconds">60</div>
             </div>
         </header>
 
