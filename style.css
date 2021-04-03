@@ -17,7 +17,7 @@ body {
 
 /* Index Page Styling */
 
-#login-btn, .info-box{
+#login-btn, .info-box, .quiz-box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -216,3 +216,99 @@ form {
 .alert-bad {
     color: red;
 }
+
+/* Quiz Box */
+.quiz-box {
+    width: 550px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.quiz-box header {
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-box header .title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.quiz-box header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+    border-radius: 5px; 
+    padding: 0 8px;
+}
+
+.quiz-box header .timer .timer-text {
+    font-weight: 400;
+    font-size: 17px;
+    user-select: none;
+}
+
+.quiz-box header .timer .timer-seconds {
+    font-size: 18px;
+    font-weight: 500;
+    background: #343a40;
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #343a40;
+    user-select: none;
+}
+
+.quiz-box section {
+    padding: 25px 30px 20px 30px;
+    background: #fff;
+}
+
+.quiz-box section .question {
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.quiz-box section .answer-list {
+    padding: 20px 0;
+    display: block;
+}
+
+section #answers div {
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* section #answers div input {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+    cursor: pointer;
+}
+
+section #answers input[type="radio"]:checked {
+    background-color:#bfb;
+    border-color: #4c4;   
+} */
