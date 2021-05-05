@@ -2,9 +2,7 @@
     include('Models/userModel.php');
 
     $currentUser = User::getCurrentUser();
-    $studentCount = User::getStudentCount();
     $studentInfo = User::getTeacherInfos();
-    $studentAverage = User::getStudentAverages();
 
     //$topTenUsers = Scoreboard::getTopTen();
 
@@ -58,7 +56,8 @@
 
             <div class="student-average">
                 <h3>Your Overall Average is: </h1>
-                <h4><?php echo User::getClassAverage() ?></h4>
+                
+               <?php echo User::getStudentAverage($currentUser->id); ?>
             </div>
 
 
