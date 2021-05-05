@@ -1,10 +1,7 @@
 <?php
     include('Models/userModel.php');
-
     $currentUser = User::getCurrentUser();
     $studentInfo = User::getTeacherInfos();
-
-    //$topTenUsers = Scoreboard::getTopTen();
 
     /* If the form submit button was clicked, then continue. */
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -66,7 +63,7 @@
             <h3>Message A Teacher</h3>
             <form action="" method="POST">
                 <label for="name">Teacher's Name</label>
-                <input id="teacherName" type="text" name="teacherName" placeholder="Student's Name...">
+                <input id="teacherName" type="text" name="teacherName" placeholder="Teacher's Name...">
 
                 <label for="email">Teacher's Email</label>
                 <select id="teacher-email" name="teacher-email">
