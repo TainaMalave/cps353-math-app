@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $password = md5(mysqli_real_escape_string($test->connection, $_POST['password']));
 
 	// SQL that selects the ids from users where the username is equal to the escaped username and the password matches the md5 hash
-    $sql = 'SELECT id FROM users WHERE username = "' . $username . '" AND password = "' . $password . '"';
+    $sql = 'SELECT is_teacher FROM users WHERE username = "' . $username . '" AND password = "' . $password . '"';
 	
 	// Run the above sql with the db class connection
     $result = mysqli_query($test->connection, $sql);
@@ -28,11 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	// If the sql returns a SINGLE record (we only want to know if one user came back. If more did, theres duplicate data), then continue logging in
     if ($count == 1)
     {
+        $data = mysqli_fetch_row($result);
+        $isTeacher = $data[0];
 		// Sets the session variable "login_user" to the escaped username
         $_SESSION['login_user'] = $username;
 		
 		// Redirects the user to the actual game
-        header('location: game.php');
+        header('location: '. ($isTeacher ? "teacherProfile.php" : "studentProfile.php"));
     }
 }
 ?>

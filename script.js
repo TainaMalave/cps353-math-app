@@ -22,7 +22,7 @@ function displayQuestion(index) {
         var answer = document.querySelector('input[type="radio"]:checked');
 		
 		// Assign a true or false if the isCorrect value is set on the checkbox answer input
-        var isCorrect = answer.dataset.isCorrect == "1";
+        var isCorrect = answer && answer.dataset.isCorrect == "1";
 
 		// If the question was answered correctly, increment the number of questions correct
         if (isCorrect) {

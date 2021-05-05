@@ -1,0 +1,147 @@
+/* Importing Font From Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Simple CSS reset for web brwsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Universal Styles (on all pages) */
+
+body {
+    background: #007bff !important;
+    color: white !important;
+}
+
+a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.wrapper { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name h3 {
+    margin-top: 3rem;
+}
+
+img {
+    border-radius: 50%;
+    width: 40%;
+    height: 40%;
+    margin-top: 3rem;
+    margin-bottom:3rem;
+}
+
+.student-count {
+    margin-bottom: 3rem;
+}
+
+.class-average {
+    margin-bottom: 3rem;
+}
+
+/* Add Questions Btn */
+.formBtn {
+    margin-top: 6.25rem;
+	box-shadow: 0px 0px 0px 2px #ffffff;
+	background-color:transparent;
+	border-radius:10px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+    margin-bottom: 6.25rem;
+}
+.formBtn:hover {
+	background-color:transparent;
+}
+.formBtn:active {
+	position:relative;
+	top:1px;
+}
+
+/* Contact Form */
+.contact-form h3 {
+    margin-top: 6.25rem;
+}
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+
+  input[type=submit] {
+    background-color: #075fb7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #004ea3;
+  }
+
+  .assigned-teacher {
+    margin-bottom: 3rem;
+}
+
+
+
+.playAgainBtn, .leaderboardBtn {
+	box-shadow: 0px 0px 0px 2px #ffffff;
+	background-color:transparent;
+	border-radius:10px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.playAgainBtn:hover, .leaderboardBtn:hover {
+	background-color:transparent;
+}
+.playAgainBtn:active, .leaderboardBtn:active {
+	position:relative;
+	top:1px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+.leaderboard-btn {
+    margin-top: 4rem;
+    width: 50%;
+}
+
+.quiz-btn {
+    margin-top: 4rem;
+    width: 50%;
+}

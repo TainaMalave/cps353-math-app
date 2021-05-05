@@ -27,7 +27,7 @@ $questions = $db->getQuestions();
             <div class="title">Smart Study</div>
             <div class="timer">
                 <div class="timer-text">Time Left</div>
-                <div class="timer-seconds">60</div>
+                <div class="timer-seconds" id="timerText">60</div>
             </div>
         </header>
 
@@ -51,6 +51,21 @@ $questions = $db->getQuestions();
     
     <script type="text/javascript">
         var questions = <?php echo json_encode($questions); ?>;
+
+        // Creating the timer
+        var seconds = 60;
+        var timer = setInterval(countdown, 1000);
+        function countdown() {
+            seconds --;
+            var timerText = document.getElementById("timerText");
+            timerText.innerHTML = seconds;
+
+            if (seconds == 0) {
+                for (var i = index; i <= questions.length; i++) {
+                    displayQuestion(i);
+                }
+            }
+        }
     </script>
     <script type="text/javascript" src="../script.js"></script>
 </body>
