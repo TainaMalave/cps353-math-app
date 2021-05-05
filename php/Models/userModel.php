@@ -57,6 +57,12 @@ class User extends Model
         return $records;
     }
 
+    public static function getStudentAverage($id) {
+        $record = static::_getRecord("SELECT SUM(score)/COUNT(1) AS student_avg,users.id FROM scoreboard LEFT JOIN users ON scoreboard.u_id = users.id WHERE users.id = $id GROUP BY u_id");
+
+        return $record["student_avg"];
+    }
+
     public static function getClassAverage() {
         $record = static::_getRecord("SELECT SUM(score)/COUNT(1) AS student_avg FROM scoreboard");
 
