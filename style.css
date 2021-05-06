@@ -111,10 +111,18 @@ body {
 
 .buttons button.login {
     color: #007bff;
-   
+}
+
+.buttons button#nextBtn {
+    color: #007bff;
 }
 
 .buttons button.login:hover {
+    color: #fff; 
+    background:#007bff;
+}
+
+.buttons button#nextBtn:hover {
     color: #fff; 
     background:#007bff;
 }
@@ -301,14 +309,16 @@ section #answers div {
     cursor: pointer;
 }
 
-/* section #answers div input {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-    cursor: pointer;
+
+#next-btn-game button {
+    width:100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-section #answers input[type="radio"]:checked {
-    background-color:#bfb;
-    border-color: #4c4;   
-} */
+#next-btn-game {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-top: none;
+}

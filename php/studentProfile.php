@@ -54,7 +54,7 @@
             <div class="student-average">
                 <h3>Your Overall Average is: </h3>
                 
-               <?php echo User::getStudentAverage($currentUser->id); ?>
+               <h4><?php echo User::getStudentAverage($currentUser->id); ?></h4>
             </div>
 
                 <div class="buttons">

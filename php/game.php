@@ -42,11 +42,12 @@ $questions = $db->getQuestions();
                 </div>
                 
             </div>
+
+            <div id="next-btn-game" class="buttons">
+                <button id="nextBtn"value="Next">Next Question</button>
+            </div>
         </section>
 
-        <footer>
-            <button id="nextBtn"value="Next">Next</button>
-        </footer>
     </div>
     
     <script type="text/javascript">
