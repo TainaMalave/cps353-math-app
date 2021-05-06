@@ -29,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Profile</title>
-    <link rel="stylesheet" href="../css/teacherprofile.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -52,10 +52,17 @@
 
 
             <div class="student-average">
-                <h3>Your Overall Average is: </h1>
+                <h3>Your Overall Average is: </h3>
                 
                <?php echo User::getStudentAverage($currentUser->id); ?>
             </div>
+
+                <div class="buttons">
+                    <a href="leaderboard.php" class="leaderboardBtn">See Leaderboard</a>
+                    <a href="game.php" class="playAgainBtn">Take The Quiz</a>
+                </div>
+
+            
 
 
             <!-- Contact Form -->
@@ -68,8 +75,8 @@
                 <label for="email">Teacher's Email</label>
                 <select id="teacher-email" name="teacher-email">
                     <option value="">Choose Email</option>
-                    <?php foreach (User::getStudentInfos() as $student): ?>
-                        <option name="email" value="<?php echo $student["email"]; ?>"><?php echo $student["email"]; ?></option>
+                    <?php foreach (User::getTeacherInfos() as $teacher): ?>
+                        <option name="email" value="<?php echo $teacher["email"]; ?>"><?php echo $teacher["email"]; ?></option>
                     <?php endforeach;?>    
                 </select>
 
@@ -78,16 +85,6 @@
 
                 <input type="submit" value="Submit">
             </form>
-            </div>
-
-            <div class="buttons">
-                <div class="leaderboard-btn">
-                    <a href="leaderboard.php" class="leaderboardBtn">See Leaderboard</a>
-                </div>
-
-                <div class="quiz-btn">
-                    <a href="game.php" class="playAgainBtn">Take Quiz</a>
-                </div>
             </div>
        </div>
     </div>
