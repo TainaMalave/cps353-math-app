@@ -23,10 +23,8 @@
 
             <div class="info-list">
                 <div class="info">1. You will have exactly <span>60 seconds</span> total to answer as many questions as you can.</div>
-                <div class="info">2. Once you pick an answer, you cannot reselect.</div>
-                <div class="info">3. You can't exit from the quiz while you're playing.</div>
-                <div class="info">4. Once time runs out, the game will stop and you will see your results.</div>
-                <div class="info">5. You earn a point for every <span>correct</span> answer.</div>
+                <div class="info">2. You earn a point for every <span>correct</span> answer.</div>
+                <div class="info">3. Once time runs out, the game will stop and you will see your results.</div>
             </div>
 
             <div class="buttons">
