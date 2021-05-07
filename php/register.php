@@ -16,8 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $username = mysqli_real_escape_string($db->connection, $_POST['username']);
     $email = $_POST['email'];
     $password = md5(mysqli_real_escape_string($db->connection, $_POST['password']));
+
+    // use a ternary operator to store the value of isTeacher. If isTeacher == 1 then its a teacher.
     $isTeacher = $_POST['teacherOrStudent'] == "teacher" ? 1 : 0;
+
+    //Store the picture with a temp name
     $picture = $_FILES["fileToUpload"]["tmp_name"];
+
+    // generate a radom set of numbers and store it with the extenstion of .png
     $pictureName = rand().".png";
     move_uploaded_file($picture, __DIR__."/../user_pics/".$pictureName);
 	
