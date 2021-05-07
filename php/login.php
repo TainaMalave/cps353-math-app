@@ -72,11 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     </div>
                 </div>
 
-                <!-- Link to Reset Password. -->
-                <div class="reset-password">
-                    <a href="#">Forget Password?</a>
-                </div>
-
                 <!-- Login to account -->
                 <div id="login-pg-btn" class="buttons">
                     <button class="login" type="submit">LOGIN</button>
