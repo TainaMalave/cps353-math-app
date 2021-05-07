@@ -120,9 +120,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     
                 </div>
                 <button class="submit-qa-btn" type="submit">Submit Question</button>
+                
             </form>
+
+
         </div>
+        <button class="profileBtn" onclick="location.href='teacherProfile.php'">Back to Profile</button>
     </div>
+
 
     <script type="text/javascript">
         function createInput(){
