@@ -1,9 +1,12 @@
 <?php
+// include the db config and create the db connection
 include ('config.php');
 
+//create variables to track the added question and alert error
 $addedQuestion = false;
 $questionAlert = false;
 
+// instantiate a new DB class
 $db = new DB();
 
 function runQuery($db, $sql) {
@@ -20,22 +23,29 @@ function insertQuery($db, $sql){
     return $db->connection->insert_id;
 }
 
+// Checks to see if the question form submission button was clicked, and if so, continue
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+    // Instantiate and set the question and correct answer variable
     $question = mysqli_real_escape_string($db->connection, $_POST['question']);
     $correctAnswer = mysqli_real_escape_string($db->connection, $_POST['correct-answer']);
 
+    // Grab the wrong answers from the form and submit the into the database.
     $wrongAnswers = array_map(function($wrongAnswer) use($db)
     {
         return mysqli_real_escape_string($db->connection, $wrongAnswer);
     }, $_POST['wrong-answer']);
 
+    // SQL that selects the count to check if there are any questions in the table already
     $checkSql = 'SELECT COUNT(*) AS count FROM questions WHERE q_title = "' . $question . '"';
 
+    // Run the above sql with the db connection 
     $checkResult = mysqli_query($db->connection, $checkSql);
 
+    // Get the number from the sql result
     $count = mysqli_fetch_array($checkResult);
 
+    // if there are no results, then the question will be added to the database table.
     if ($count[0] == 0)
     {
 		$addedQuestion = true;
@@ -50,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
 
     }
-    else // otherwise
+    else // if question already exists, show an alert.
     {
         $questionAlert = true;
     }

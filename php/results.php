@@ -1,6 +1,11 @@
 <?php
+//include the user model here.
 include('Models/userModel.php');
+
+//create a user variable and call get the get current user function from the model
 $user = User::getCurrentUser();
+
+// take the user variable and call the add score function and get the numbers right and wrong.
 $user->addScore($_GET['correct'], $_GET['wrong']);
 ?>
 

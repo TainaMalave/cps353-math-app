@@ -1,25 +1,28 @@
 <?php
-    include('Models/userModel.php');
-    $currentUser = User::getCurrentUser();
-    $studentInfo = User::getTeacherInfos();
+// Include the user model
+include ('Models/userModel.php');
 
-    /* If the form submit button was clicked, then continue. */
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        /* Gather the information needed from the submission form */
-        $name = $_POST['teacherName'];
-        $mailTo = $_POST['teacher-email'];
-        $subject = 'SmartStudy: New Message';
-        $message = 'Hello ' . $name . ', ' . $_POST['message'];
-        $header = 'From: tymalave@gmail.com' . "\r\n" .
-        'MIME-Version: 1.0' . "\r\n" .
-        'Content-type: text/html; charset=utf-8'; 
+// create variables and call functions from the user model to be used in this page.
+$currentUser = User::getCurrentUser();
+$studentInfo = User::getTeacherInfos();
 
-        /* If the fields are correct and the message sent then echo the following */
-        if(mail($mailTo, $subject, $message, $header))
-            echo "Email sent";
-        else
-            echo "Email sending failed";
-    }
+/* If the form submit button was clicked, then continue. */
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+
+    /* Gather the information needed from the submission form */
+    $name = $_POST['teacherName'];
+    $mailTo = $_POST['teacher-email'];
+    $subject = 'SmartStudy: New Message';
+    $message = 'Hello ' . $name . ', ' . $_POST['message'];
+    $header = 'From: tymalave@gmail.com' . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/html; charset=utf-8';
+
+    /* If the fields are correct and the message sent then echo the following */
+    if (mail($mailTo, $subject, $message, $header)) echo "Email sent";
+    else
+    // alert that it failed
+    echo "Email sending failed";
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,16 +38,21 @@
 <body>
     <div class="wrapper">
        <div class="profile-content">
+
         <div class="name">
+            <!-- Grab the current user name and display it -->
             <h3>Welcome Back, <?php echo $currentUser->username ?>.</h3>
         </div>
 
             <div class="picture">
+            <!-- Grab the picture for the current user and display it  -->
             <img src="../user_pics/<?php echo $currentUser->picture ?>" alt="student pic">
             </div>
 
             <div class="assigned-teacher">
                 <h3>Your Assigned Teacher is: </h3>
+
+                <!-- Loop through the get teacher infos function and grab the user name for the teacher -->
                 <?php foreach (User::getTeacherInfos() as $teacher): ?>
                     <h4><?php echo $teacher["username"]; ?></h4>
                 <?php endforeach;?>
@@ -54,6 +62,7 @@
             <div class="student-average">
                 <h3>Your Overall Average is: </h3>
                 
+                <!-- Grab the average of the current user and display it -->
                <h4><?php echo User::getStudentAverage($currentUser->id); ?></h4>
             </div>
 
@@ -75,6 +84,8 @@
                 <label for="email">Teacher's Email</label>
                 <select id="teacher-email" name="teacher-email">
                     <option value="">Choose Email</option>
+
+                    <!-- Loop through the teacher info function and grab the email and display it in the dropwdown menu -->
                     <?php foreach (User::getTeacherInfos() as $teacher): ?>
                         <option name="email" value="<?php echo $teacher["email"]; ?>"><?php echo $teacher["email"]; ?></option>
                     <?php endforeach;?>    

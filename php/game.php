@@ -53,7 +53,10 @@ $questions = $db->getQuestions();
     <script type="text/javascript">
         var questions = <?php echo json_encode($questions); ?>;
 
-        // Creating the timer
+        /* 
+            Create the timer that will count down from 60 seconds
+            Once the timer hits 0, submit the questions and display the results.
+        */
         var seconds = 60;
         var timer = setInterval(countdown, 1000);
         function countdown() {

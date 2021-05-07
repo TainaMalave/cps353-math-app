@@ -1,4 +1,5 @@
 <?php
+//include the answer model
 include ('answerModel.php');
 
 class Question

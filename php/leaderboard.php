@@ -1,8 +1,9 @@
 <?php
-    include('Models/scoreboardModel.php');
-
-    $topTenUsers = Scoreboard::getTopTen();
+// include the scoreboard model and create an variable to hold the top ten users.
+include ('Models/scoreboardModel.php');
+$topTenUsers = Scoreboard::getTopTen();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
